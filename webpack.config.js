@@ -105,7 +105,7 @@ module.exports = function makeWebpackConfig() {
       },
 
       // copy those assets to output
-      {test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file?name=fonts/[name].[hash].[ext]?'},
+      {test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file?name=assets/[name].[hash].[ext]?'},
 
       // Support for *.json files.
       {test: /\.json$/, loader: 'json'},
@@ -183,6 +183,7 @@ module.exports = function makeWebpackConfig() {
       new HtmlWebpackPlugin({
         template: './src/public/index.html',
         inject: 'body',
+        favicon: './src/public/img/favicon.ico',
         chunksSortMode: packageSort(['polyfills', 'vendor', 'app'])
       }),
 
@@ -210,13 +211,7 @@ module.exports = function makeWebpackConfig() {
         // Angular 2 is broken again, disabling mangle until beta 6 that should fix the thing
         // Todo: remove this with beta 6
         mangle: false
-      }),
-
-      // Copy assets from the public folder
-      // Reference: https://github.com/kevlened/copy-webpack-plugin
-      new CopyWebpackPlugin([{
-        from: root('src/public')
-      }])
+      })
     );
   }
 
