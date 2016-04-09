@@ -2,7 +2,7 @@ import {Component, OnInit} from 'angular2/core';
 
 @Component({
   selector: 'about',
-  template: require('./about.html'),
+  template: require('./about.jade')(),
   styles: [require('./about.scss')],
   providers: [],
   directives: [],

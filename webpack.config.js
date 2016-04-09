@@ -132,6 +132,8 @@ module.exports = function makeWebpackConfig() {
 
       // support for .html as raw text
       // todo: change the loader to something that adds a hash to images
+      {test: /\.jade$/, loader: 'jade'},
+
       {test: /\.html$/, loader: 'raw'}
     ],
     postLoaders: [],
