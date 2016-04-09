@@ -68,7 +68,10 @@ module.exports = function makeWebpackConfig() {
    */
   config.resolve = {
     cache: !isTest,
-    root: root(),
+    root: [
+      root('src/app'),
+      root('node_modules')
+    ],
     // only discover files that have those extensions
     extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html'],
     alias: {
